@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1b1b1b;
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            font-size: 24px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .no {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .no:hover {
+            transform: none; /* Para evitar confusión, no escala */
+        }
+    </style>
+</head>
+<body>
+    <h1>CS2?</h1>
+    <div class="buttons-container">
+        <button class="yes" onclick="openCS2()">Sí</button>
+        <button class="no" onmouseover="moveButton(this)">No</button>
+    </div>
+
+    <script>
+        function openCS2() {
+            // Abre Steam y ejecuta CS2
+            window.location.href = "steam://run/730";
+        }
+
+        function moveButton(button) {
+            // Genera nuevas posiciones aleatorias
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+
+            // Aplica las nuevas posiciones
+            button.style.position = "absolute";
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
